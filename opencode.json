@@ -1,0 +1,74 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permission": {
+    "*": "ask",
+
+    "read": {
+      "*": "allow",
+      "*.env": "ask",
+      "*.env.*": "ask",
+      "*.env.example": "allow",
+      "*.pem": "ask",
+      "*.key": "ask",
+      "*.npmrc": "ask",
+      "*.pypirc": "ask",
+      "*.netrc": "deny",
+      "*.git-credentials": "deny",
+      "*.ssh/*": "deny",
+      "*.aws/*": "deny",
+      "*.kube/config": "deny",
+      "*.docker/config.json": "deny",
+      "*.config/gh/*": "deny",
+      "*opencode/auth.json": "deny",
+      "*opencode/mcp-auth.json": "deny"
+    },
+
+    "glob": "allow",
+    "grep": "allow",
+    "lsp": "allow",
+    "todowrite": "allow",
+    "question": "allow",
+    "task": "allow",
+
+    "edit": {
+      "*": "allow",
+      "*.env": "ask",
+      "*.env.*": "ask",
+      "*.npmrc": "ask",
+      "*opencode.json": "ask",
+      "*opencode.jsonc": "ask",
+      "*.opencode/*": "ask",
+      "*AGENTS.md": "ask",
+      "*.github/*": "ask",
+      "*.gitlab-ci.yml": "ask",
+      "*.git/*": "ask",
+      "*.husky/*": "ask",
+      "*.pre-commit-config.yaml": "ask",
+      "*.vscode/*": "ask",
+      "*.bashrc": "ask",
+      "*.zshrc": "ask",
+      "*.profile": "ask",
+      "*.ssh/*": "deny"
+    },
+
+    "bash": {
+      "*": "ask",
+      "git status*": "allow",
+      "git diff*": "allow",
+      "git log*": "allow",
+      "git show*": "allow",
+      "git branch": "allow",
+      "ls*": "allow",
+      "pwd": "allow",
+      "sudo *": "deny",
+      "su *": "deny",
+      "doas *": "deny"
+    },
+
+    "skill": "ask",
+    "webfetch": "ask",
+    "websearch": "ask",
+    "external_directory": "ask",
+    "doom_loop": "ask"
+  }
+}

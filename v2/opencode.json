@@ -1,0 +1,69 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  "permissions": [
+    { "action": "*", "resource": "*", "effect": "ask" },
+
+    { "action": "read", "resource": "*", "effect": "allow" },
+    { "action": "read", "resource": "*.env", "effect": "ask" },
+    { "action": "read", "resource": "*.env.*", "effect": "ask" },
+    { "action": "read", "resource": "*.env.example", "effect": "allow" },
+    { "action": "read", "resource": "*.pem", "effect": "ask" },
+    { "action": "read", "resource": "*.key", "effect": "ask" },
+    { "action": "read", "resource": "*.npmrc", "effect": "ask" },
+    { "action": "read", "resource": "*.pypirc", "effect": "ask" },
+
+    { "action": "glob", "resource": "*", "effect": "allow" },
+    { "action": "grep", "resource": "*", "effect": "allow" },
+    { "action": "question", "resource": "*", "effect": "allow" },
+    { "action": "subagent", "resource": "*", "effect": "allow" },
+
+    { "action": "edit", "resource": "*", "effect": "allow" },
+    { "action": "edit", "resource": "*.env", "effect": "ask" },
+    { "action": "edit", "resource": "*.env.*", "effect": "ask" },
+    { "action": "edit", "resource": "*.npmrc", "effect": "ask" },
+    { "action": "edit", "resource": "*opencode.json", "effect": "ask" },
+    { "action": "edit", "resource": "*opencode.jsonc", "effect": "ask" },
+    { "action": "edit", "resource": "*.opencode/*", "effect": "ask" },
+    { "action": "edit", "resource": "*AGENTS.md", "effect": "ask" },
+    { "action": "edit", "resource": "*.github/*", "effect": "ask" },
+    { "action": "edit", "resource": "*.gitlab-ci.yml", "effect": "ask" },
+    { "action": "edit", "resource": "*.git/*", "effect": "ask" },
+    { "action": "edit", "resource": "*.husky/*", "effect": "ask" },
+    { "action": "edit", "resource": "*.pre-commit-config.yaml", "effect": "ask" },
+    { "action": "edit", "resource": "*.vscode/*", "effect": "ask" },
+    { "action": "edit", "resource": "*.bashrc", "effect": "ask" },
+    { "action": "edit", "resource": "*.zshrc", "effect": "ask" },
+    { "action": "edit", "resource": "*.profile", "effect": "ask" },
+
+    { "action": "shell", "resource": "*", "effect": "ask" },
+    { "action": "shell", "resource": "git status *", "effect": "allow" },
+    { "action": "shell", "resource": "git diff *", "effect": "allow" },
+    { "action": "shell", "resource": "git log *", "effect": "allow" },
+    { "action": "shell", "resource": "git show *", "effect": "allow" },
+    { "action": "shell", "resource": "git branch", "effect": "allow" },
+    { "action": "shell", "resource": "ls *", "effect": "allow" },
+    { "action": "shell", "resource": "pwd", "effect": "allow" },
+
+    { "action": "skill", "resource": "*", "effect": "ask" },
+    { "action": "webfetch", "resource": "*", "effect": "ask" },
+    { "action": "websearch", "resource": "*", "effect": "ask" },
+    { "action": "external_directory", "resource": "*", "effect": "ask" }
+  ],
+
+  "policies": [
+    { "action": "tool.use", "resource": "read:*.ssh/*", "effect": "deny" },
+    { "action": "tool.use", "resource": "read:*.netrc", "effect": "deny" },
+    { "action": "tool.use", "resource": "read:*.git-credentials", "effect": "deny" },
+    { "action": "tool.use", "resource": "read:*.aws/*", "effect": "deny" },
+    { "action": "tool.use", "resource": "read:*.kube/config", "effect": "deny" },
+    { "action": "tool.use", "resource": "read:*.docker/config.json", "effect": "deny" },
+    { "action": "tool.use", "resource": "read:*.config/gh/*", "effect": "deny" },
+    { "action": "tool.use", "resource": "read:*opencode/auth.json", "effect": "deny" },
+    { "action": "tool.use", "resource": "read:*opencode/mcp-auth.json", "effect": "deny" },
+    { "action": "tool.use", "resource": "edit:*.ssh/*", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:sudo *", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:su *", "effect": "deny" },
+    { "action": "tool.use", "resource": "shell:doas *", "effect": "deny" }
+  ]
+}
